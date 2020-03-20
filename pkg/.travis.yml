@@ -1,41 +1,71 @@
-    
-# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-matrix:
+env:
+  global:
+  - PKGNAME=flightplanning
+jobs:
   include:
   - os: linux
     env: BADGE=linux
   - os: osx
     env: BADGE=osx
-
-
+  - os: windows
+    language: bash
+    install:
+      - choco install -y r --version 3.6.2
+      - choco install -y rtools --version 3.5.0.4
+      - "url=$(curl https://miktex.org/download | sed -n 's/.*href=.\\(.*x64.exe\\).*/https:\\/\\/miktex.org\\1/p' | head -1)"
+      - if ! [ -f $HOME/AppData/Local/Temp/chocolatey/miktex.exe ]; then
+        curl -Lo $HOME/AppData/Local/Temp/chocolatey/miktex.exe $url;
+        fi
+      - $HOME/AppData/Local/Temp/chocolatey/miktex.exe --unattended --auto-install=yes 
+      - "export PATH=/c/Program\\ Files/MiKTeX\\ 2.9/miktex/bin/x64:$PATH"
+      - choco install -y pandoc
+      - "export PATH=/c/Program\\ Files/R/R-3.6.2/bin/x64:/c/Rtools/bin:/c/Rtools/mingw_64/bin:$PATH"
+      - mkdir -p ${HOME}/Documents/R/win-library/3.6
+      - export R_LIBS_USER=${HOME}/Documents/R/win-library/3.6
+      - echo 'options(repos = c(CRAN = "https://cloud.r-project.org"))' > .Rprofile
+      - Rscript -e 'install.packages(c("remotes"));if (!all(c("remotes") %in% installed.packages())) { q(status = 1, save = "no")}'
+      - "Rscript -e 'deps <- remotes::dev_package_deps(dependencies = NA);remotes::install_deps(dependencies = TRUE);if (!all(deps$package %in% installed.packages())) { message(\"missing: \", paste(setdiff(deps$package, installed.packages()), collapse=\", \")); q(status = 1, save = \"no\")}'"
 addons:
   apt:
     packages:
-      - ccache
-      - gdal-bin
-      - libgdal1-dev
-      - libproj-dev
-
-# Code coverage
+    - ccache
+    - gdal-bin
+    - libgdal1-dev
+    - libproj-dev
+  homebrew:
+    packages:
+    - ccache
+    - geos
+    - gdal
 r_packages:
-  - covr
-
-
+- covr
 r_binary_packages:
-  - rgdal
-  
-language: R
-sudo: false
-cache: 
-  - ccache
-  - packages  
-
+- rgdal
+language: r
+cache:
+- ccache
+- packages
 before_install:
-  - mkdir $HOME/.R && echo -e 'CXX_STD = CXX14\n\nVER=\nCCACHE=ccache\nCC=$(CCACHE) gcc$(VER) -std=gnu99\nCXX=$(CCACHE) g++$(VER)\nC11=$(CCACHE) g++$(VER)\nC14=$(CCACHE) g++$(VER)\nFC=$(CCACHE) gfortran$(VER)\nF77=$(CCACHE) gfortran$(VER)' > $HOME/.R/Makevars
-
+- mkdir $HOME/.R && echo -e 'CXX_STD = CXX14\n\nVER=\nCCACHE=ccache\nCC=$(CCACHE)
+  gcc$(VER) -std=gnu99\nCXX=$(CCACHE) g++$(VER)\nC11=$(CCACHE) g++$(VER)\nC14=$(CCACHE)
+  g++$(VER)\nFC=$(CCACHE) gfortran$(VER)\nF77=$(CCACHE) gfortran$(VER)' > $HOME/.R/Makevars
 script:
 - R CMD build .
 - R CMD check *tar.gz --as-cran
-
+- R CMD INSTALL . --build
 after_success:
 - Rscript -e 'library(covr); codecov()'
+before_deploy:
+- 'export PKGVERSION=$(sed -n ''/^Version:/s/Version: \(.*\)/\1/p'' DESCRIPTION)'
+- echo "Upload file glob is $(echo $PKGNAME)_${PKGVERSION}*"
+- ls
+deploy:
+  provider: releases
+  token:
+    secure: CejHQ8oRDZQdCNfTkCo/iA1kLw+eZ+UP3pt2dIgGU0R5WKAg4thrGlFnZdl7rI8for6Tm2ZYG7qZNZI3xjYVkHOutjhI3dF0aAkzhzrOzecO28zalapUjuNt6qPt3DwCYiD1g9JAO6pMQ/XyJkjHSCsr6HT8GQRthmrAONAH7VeZ7r+RFBrAZUZYn4ZAoMfybxV0QIaKpT+YPMYAc5S2bputezP0HJ96+zj9dar1TjATtNgjsBegSvMANJEWbEwWaSY71F00GBwY4cjg37t3PtaQHMv8TBuWWpa7evesChvCeBa3KTLcqK2KVvT5GBFVrPXAqSjJt8Djf26REZb91ALnyJIDOTCGClyBIFQrbNVhY/tabndU+WOFQ1LMLKxtuxFwXr2j8DIr4t4zd2Nq26pMWdMvoYjdqUjqhITPeLUKyjO5SHmtg/8OqrEgNmCjIwBaocBMkqnzu4It1VfJNzPSN2AL1hUKm0jofZA7GyJl+QB9sZkQox7eOopSDLt1UpoEArAeslHvZdr0GU8YslkQM9LnYMQtmpknN+Tv6lHPp1WAVf4uazsw8JMkd7WOVEmT1XvqAVa0P3S8MXNXFY6UGduzFdmXv8zDUs4EjwG2R9FpTtVZZXdUeZ3ugq5jKbjOjQLyCMmfyvZ6WwVsfTXylgyI8L/jTa/bYunFaJE=
+  file_glob: true
+  file: ${PKGNAME}_${PKGVERSION}*
+  skip_cleanup: true
+  on:
+    repo: caiohamamura/flightplanning-R
+    tags: true

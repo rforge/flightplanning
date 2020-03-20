@@ -1,5 +1,6 @@
 flightplanning-R
 ================================
+[![CRAN](https://www.r-pkg.org/badges/version/flightplanning)](https://cran.r-project.org/web/packages/flightplanning)
 [![Build Status](https://travis-ci.com/caiohamamura/flightplanning-R.svg)](https://travis-ci.com/caiohamamura/flightplanning-R)
 [![codecov](https://codecov.io/gh/caiohamamura/flightplanning-R/branch/master/graph/badge.svg)](https://codecov.io/gh/caiohamamura/flightplanning-R)
 ![license](https://img.shields.io/badge/license-MIT-green.svg) 
@@ -56,9 +57,7 @@ This package was developed by author and its contributors which helped providing
 ## Example
 ``` R
 # Install and load the package
-install.packages("devtools")
-require(devtools)
-install_github("caiohamamura/flightplanning-R", "v0.7.1")
+install.packages("flightplanning")
 library(flightplanning)
 
 params = flight.parameters(height=100,
