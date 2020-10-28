@@ -4,9 +4,11 @@ flightplanning-R
 [![Build Status](https://travis-ci.com/caiohamamura/flightplanning-R.svg)](https://travis-ci.com/caiohamamura/flightplanning-R)
 [![codecov](https://codecov.io/gh/caiohamamura/flightplanning-R/branch/master/graph/badge.svg)](https://codecov.io/gh/caiohamamura/flightplanning-R)
 ![license](https://img.shields.io/badge/license-MIT-green.svg) 
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/flightplanning)
 
 An R package for generating UAV flight plans, specially for Litchi.
 
+<img src="man/images/MANEJO_4.0_alta_velocidade.gif" alt="Animation of drone taking photos along the flight plan" align="center"/>
 
 ## Installation
 
@@ -92,7 +94,11 @@ params
 ## [1] 2
 
 # Load example SpatialDataFrame polygon
-data(exampleBoundary)
+exampleBoundary = readOGR(
+                          system.file("extdata", 
+                                      "exampleBoundary.shp", 
+                                      package="flightplanning"), 
+                          "exampleBoundary")
 
 # Set the output
 output = "output.csv"
