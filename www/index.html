@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>flightplanning</title>
+</head>
+
+<body>
+    <div class="Box-body px-5 pb-5">
+        <article class="markdown-body entry-content container-lg" itemprop="text">
+            <h1><a id="user-content-flightplanning-r" aria-hidden="true" href="#flightplanning-r"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>flightplanning-R</h1>
+            <p>
+                <a href="https://cran.r-project.org/web/packages/flightplanning" rel="nofollow"><img src="https://camo.githubusercontent.com/a557b153a6b0560e723d1a69448f3c4e221e46958a47fd8458a13896bf8525c5/68747470733a2f2f7777772e722d706b672e6f72672f6261646765732f76657273696f6e2f666c69676874706c616e6e696e67" alt="CRAN" data-canonical-src="https://www.r-pkg.org/badges/version/flightplanning"
+                        style="max-width:100%;"></a>
+                <a href="https://travis-ci.com/caiohamamura/flightplanning-R" rel="nofollow"><img src="https://camo.githubusercontent.com/182c02232ef7a74b26549f9f47aaa79c55c123a915425588532fceed38327d6d/68747470733a2f2f7472617669732d63692e636f6d2f6361696f68616d616d7572612f666c69676874706c616e6e696e672d522e737667" alt="Build Status"
+                        data-canonical-src="https://travis-ci.com/caiohamamura/flightplanning-R.svg" style="max-width:100%;"></a>
+                <a href="https://codecov.io/gh/caiohamamura/flightplanning-R" rel="nofollow"><img src="https://camo.githubusercontent.com/5eb42f659fc5c6c93b1042e7d2948d67a3fd977418e925681e6d8862440bba2c/68747470733a2f2f636f6465636f762e696f2f67682f6361696f68616d616d7572612f666c69676874706c616e6e696e672d522f6272616e63682f6d61737465722f67726170682f62616467652e737667"
+                        alt="codecov" data-canonical-src="https://codecov.io/gh/caiohamamura/flightplanning-R/branch/master/graph/badge.svg" style="max-width:100%;"></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/45b4ffbd594af47fe09a3432f9f8e122c6518aa6352b4ce453a1a2563da2905c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d677265656e2e737667"><img src="https://camo.githubusercontent.com/45b4ffbd594af47fe09a3432f9f8e122c6518aa6352b4ce453a1a2563da2905c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d677265656e2e737667" alt="license" data-canonical-src="https://img.shields.io/badge/license-MIT-green.svg"
+                        style="max-width:100%;"></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/1b554ae3294460f049a24bd4f27d60ad979c44afdc3252612b5ee73ff458dbb1/68747470733a2f2f6372616e6c6f67732e722d706b672e6f72672f6261646765732f6772616e642d746f74616c2f666c69676874706c616e6e696e67"><img src="https://camo.githubusercontent.com/1b554ae3294460f049a24bd4f27d60ad979c44afdc3252612b5ee73ff458dbb1/68747470733a2f2f6372616e6c6f67732e722d706b672e6f72672f6261646765732f6772616e642d746f74616c2f666c69676874706c616e6e696e67" alt="Downloads"
+                        data-canonical-src="https://cranlogs.r-pkg.org/badges/grand-total/flightplanning" style="max-width:100%;"></a>
+            </p>
+            <p>An R package for generating UAV flight plans, specially for Litchi.</p>
+            <p>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/caiohamamura/flightplanning-R/blob/master/man/images/MANEJO_4.0_alta_velocidade.gif"><img src="https://github.com/caiohamamura/flightplanning-R/raw/master/man/images/MANEJO_4.0_alta_velocidade.gif" alt="Animation of drone taking photos along the flight plan" align="center" style="max-width:100%;"></a>
+            </p>
+            <h2><a id="user-content-installation" aria-hidden="true" href="#installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Installation</h2>
+            <p>This package should be installed using the devtools.</p>
+            <div class="highlight highlight-source-r"><pre><span class="pl-c"><span class="pl-c">#</span> install.packages("devtools")</span>
+<span class="pl-e">devtools</span><span class="pl-k">::</span>install_github(<span class="pl-s"><span class="pl-pds">"</span>caiohamamura/flightplanning-R<span class="pl-pds">"</span></span>)</pre></div>
+            <h2><a id="user-content-usage" aria-hidden="true" href="#usage"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Usage</h2>
+            <p>There are two main functions available:</p>
+            <ul>
+                <li><code>flight.parameters()</code>: this will calculate the flight parameters given desired settings for GSD/height, target overlap, flight speed and camera specifications.</li>
+                <li><code>litchi.plan()</code>: it depends on the <code>flight.parameters()</code> return object to generate the CSV flight plan ready to import into the Litchi Hub.</li>
+            </ul>
+            <h3><a id="user-content-flightparameters" aria-hidden="true" href="#flightparameters"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>flight.parameters</h3>
+            <ul>
+                <li><code>height</code>: target flight height, default NA</li>
+                <li><code>gsd</code>: target ground resolution in centimeters, must provide either <code>gsd</code> or <code>height</code></li>
+                <li><code>focal.length35</code>: numeric. Camera focal length 35mm equivalent, default 20</li>
+                <li><code>image.width.px</code>: numeric. Image width in pixels, default 4000</li>
+                <li><code>image.height.px</code>: numeric. Image height in pixels, default 3000</li>
+                <li><code>side.overlap</code>: desired width overlap between photos, default 0.8</li>
+                <li><code>front.overlap</code>: desired height overlap between photos, default 0.8</li>
+                <li><code>flight.speed.kmh</code>: flight speed in km/h, default 54.</li>
+            </ul>
+            <h3><a id="user-content-litchiplan" aria-hidden="true" href="#litchiplan"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>litchi.plan</h3>
+            <ul>
+                <li><code>roi</code>: range of interest loaded as an OGR layer, must be in a metric units projection for working properly</li>
+                <li><code>output</code>: output path for the csv file</li>
+                <li><code>flight.params</code>: Flight Parameters. parameters calculated from flight.parameters()</li>
+                <li><code>gimbal.pitch.angle</code>: gimbal angle for taking photos, default -90 (overriden at flight time)</li>
+                <li><code>flight.lines.angle</code>: angle for the flight lines, default -1 (auto set based on larger direction)</li>
+                <li><code>max.waypoints.distance</code>: maximum distance between waypoints in meters, default 2000 (some issues have been reported with distances &gt; 2 Km)</li>
+                <li><code>max.flight.time</code>: maximum flight time. If mission is greater than the estimated time, it will be splitted into smaller missions.</li>
+                <li><code>starting.point</code>: numeric (1, 2, 3 or 4). Change position from which to start the flight, default 1</li>
+            </ul>
+            <h2><a id="user-content-authors" aria-hidden="true" href="#authors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Authors</h2>
+            <ul>
+                <li>Caio Hamamura</li>
+                <li>Danilo Roberti Alves de Almeida</li>
+                <li>Daniel de Almeida Papa</li>
+                <li>Hudson Franklin Pessoa Veras</li>
+                <li>Evandro Orfanó Figueiredo</li>
+            </ul>
+            <p>This package was developed by author and its contributors which helped providing the calculations and testing.</p>
+            <h2><a id="user-content-example" aria-hidden="true" href="#example"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Example</h2>
+            <div class="highlight highlight-source-r"><pre><span class="pl-c"><span class="pl-c">#</span> Install and load the package</span>
+install.packages(<span class="pl-s"><span class="pl-pds">"</span>flightplanning<span class="pl-pds">"</span></span>)
+library(<span class="pl-smi">flightplanning</span>)
+
+<span class="pl-v">params</span> <span class="pl-k">=</span> flight.parameters(<span class="pl-v">height</span><span class="pl-k">=</span><span class="pl-c1">100</span>,
+                          <span class="pl-v">flight.speed.kmh</span><span class="pl-k">=</span><span class="pl-c1">54</span>,
+                          <span class="pl-v">side.overlap</span> <span class="pl-k">=</span> <span class="pl-c1">0.8</span>,
+                          <span class="pl-v">front.overlap</span> <span class="pl-k">=</span> <span class="pl-c1">0.8</span>)
+                          
+<span class="pl-smi">params</span>
+
+<span class="pl-c"><span class="pl-c">#</span># Slot "flight.line.distance": </span>
+<span class="pl-c"><span class="pl-c">#</span># [1] 34.61329 </span>
+<span class="pl-c"><span class="pl-c">#</span>#  </span>
+<span class="pl-c"><span class="pl-c">#</span># Slot "flight.speed.kmh": </span>
+<span class="pl-c"><span class="pl-c">#</span># [1] 46.72794 </span>
+<span class="pl-c"><span class="pl-c">#</span># </span>
+<span class="pl-c"><span class="pl-c">#</span># Slot "front.overlap":</span>
+<span class="pl-c"><span class="pl-c">#</span># [1] 0.8</span>
+<span class="pl-c"><span class="pl-c">#</span># </span>
+<span class="pl-c"><span class="pl-c">#</span># Slot "gsd":</span>
+<span class="pl-c"><span class="pl-c">#</span># [1] 4.326662</span>
+<span class="pl-c"><span class="pl-c">#</span># </span>
+<span class="pl-c"><span class="pl-c">#</span># Slot "height":</span>
+<span class="pl-c"><span class="pl-c">#</span># [1] 100</span>
+<span class="pl-c"><span class="pl-c">#</span># </span>
+<span class="pl-c"><span class="pl-c">#</span># Slot "ground.height":</span>
+<span class="pl-c"><span class="pl-c">#</span># [1] 129.7998</span>
+<span class="pl-c"><span class="pl-c">#</span># </span>
+<span class="pl-c"><span class="pl-c">#</span># Slot "minimum.shutter.speed":</span>
+<span class="pl-c"><span class="pl-c">#</span># [1] "1/289"</span>
+<span class="pl-c"><span class="pl-c">#</span># </span>
+<span class="pl-c"><span class="pl-c">#</span># Slot "photo.interval":</span>
+<span class="pl-c"><span class="pl-c">#</span># [1] 2</span>
+
+<span class="pl-c"><span class="pl-c">#</span> Load example SpatialDataFrame polygon</span>
+<span class="pl-v">exampleBoundary</span> <span class="pl-k">=</span> readOGR(
+                          system.file(<span class="pl-s"><span class="pl-pds">"</span>extdata<span class="pl-pds">"</span></span>, 
+                                      <span class="pl-s"><span class="pl-pds">"</span>exampleBoundary.shp<span class="pl-pds">"</span></span>, 
+                                      <span class="pl-v">package</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>flightplanning<span class="pl-pds">"</span></span>), 
+                          <span class="pl-s"><span class="pl-pds">"</span>exampleBoundary<span class="pl-pds">"</span></span>)
+
+<span class="pl-c"><span class="pl-c">#</span> Set the output</span>
+<span class="pl-v">output</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>output.csv<span class="pl-pds">"</span></span>
+
+<span class="pl-c"><span class="pl-c">#</span> Create the csv plan </span>
+litchi.plan(<span class="pl-smi">exampleBoundary</span>,
+            <span class="pl-smi">output</span>,
+            <span class="pl-smi">params</span>,
+            <span class="pl-v">flight.lines.angle</span> <span class="pl-k">=</span> <span class="pl-k">-</span><span class="pl-c1">1</span>,
+            <span class="pl-v">max.waypoints.distance</span> <span class="pl-k">=</span> <span class="pl-c1">2000</span>,
+            <span class="pl-v">max.flight.time</span> <span class="pl-k">=</span> <span class="pl-c1">15</span>)
+            
+<span class="pl-c"><span class="pl-c">#</span> Your flight was splitted in 2 splits,</span>
+<span class="pl-c"><span class="pl-c">#</span> because the total time would be 27.62 minutes.</span>
+<span class="pl-c"><span class="pl-c">#</span> They were saved as:</span>
+<span class="pl-c"><span class="pl-c">#</span> output1.csv</span>
+<span class="pl-c"><span class="pl-c">#</span> output2.csv</span>
+<span class="pl-c"><span class="pl-c">#</span> The entire flight plan was saved as:</span>
+<span class="pl-c"><span class="pl-c">#</span> output_entire.csv</span>
+<span class="pl-c"><span class="pl-c">#</span> #####################</span>
+<span class="pl-c"><span class="pl-c">#</span> ## Flight settings ## </span>
+<span class="pl-c"><span class="pl-c">#</span> #####################</span>
+<span class="pl-c"><span class="pl-c">#</span> Min shutter speed: 1/289</span>
+<span class="pl-c"><span class="pl-c">#</span> Photo interval:    2 s</span>
+<span class="pl-c"><span class="pl-c">#</span> Flight speed:      46.7279 km/h</span>
+<span class="pl-c"><span class="pl-c">#</span> Flight lines angle: 39.0626</span>
+<span class="pl-c"><span class="pl-c">#</span> Total flight time: 27.6239</span></pre></div>
+            <p>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/caiohamamura/flightplanning-R/blob/master/man/images/plot_flightplan.png"><img src="https://github.com/caiohamamura/flightplanning-R/raw/master/man/images/plot_flightplan.png" alt="Flight plan plot" align="center" style="max-width:100%;"></a>
+            </p>
+            <h2><a id="user-content-references" aria-hidden="true" href="#references"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>References</h2>
+            <p>FIGUEIREDO, E. O. et al. Planos de Voo Semiautônomos para Fotogrametria com Aeronaves Remotamente Pilotadas de Classe 3. Acre: EMBRAPA. 2018</p>
+        </article>
+    </div>
+</body>
+
+</html>
